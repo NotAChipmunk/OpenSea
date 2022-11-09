@@ -90,6 +90,11 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="Sea.Startup.pas"/>
+        <DCCReference Include="Sea.Globals.pas"/>
+        <DCCReference Include="Sea.Memory.pas"/>
+        <DCCReference Include="Sea.Version.pas"/>
+        <None Include="Sea.Options.inc"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

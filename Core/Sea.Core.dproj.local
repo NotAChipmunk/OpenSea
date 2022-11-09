@@ -98,7 +98,21 @@
     <Transaction>2022/11/09 18:35:39.452,D:\Develop\Delphi\DeepSea\Sea.Command.pas=</Transaction>
     <Transaction>2022/11/09 18:35:39.471,D:\Develop\Delphi\DeepSea\Sea.Anonymous.pas=</Transaction>
     <Transaction>2022/11/09 18:36:21.023,D:\NotAChipmunk\OpenSea\Core\Sea.Core.dproj=D:\Develop\Delphi\DeepSea\Sea.Startup.dproj</Transaction>
+    <Transaction>2022/11/09 18:44:00.405,=D:\NotAChipmunk\OpenSea\Core\Unit1.pas</Transaction>
+    <Transaction>2022/11/09 18:44:19.782,D:\NotAChipmunk\OpenSea\Core\Sea.Version.pas=D:\NotAChipmunk\OpenSea\Core\Unit1.pas</Transaction>
+    <Transaction>2022/11/09 19:17:26.034,=D:\NotAChipmunk\OpenSea\Core\Unit1.pas</Transaction>
+    <Transaction>2022/11/09 19:17:42.085,D:\NotAChipmunk\OpenSea\Core\Sea.Globals.pas=D:\NotAChipmunk\OpenSea\Core\Unit1.pas</Transaction>
+    <Transaction>2022/11/09 19:25:04.289,=D:\NotAChipmunk\OpenSea\Core\Unit1.pas</Transaction>
+    <Transaction>2022/11/09 19:25:22.144,D:\NotAChipmunk\OpenSea\Core\Sea.Startup.pas=D:\NotAChipmunk\OpenSea\Core\Unit1.pas</Transaction>
+    <Transaction>2022/11/09 19:35:32.740,=D:\NotAChipmunk\OpenSea\Core\Sea.Options.inc</Transaction>
+    <Transaction>2022/11/09 20:01:59.680,=D:\NotAChipmunk\OpenSea\Core\Unit1.pas</Transaction>
+    <Transaction>2022/11/09 20:02:14.105,D:\NotAChipmunk\OpenSea\Core\Sea.Memory.pas=D:\NotAChipmunk\OpenSea\Core\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
-	</ProjectSortOrder>
+    <File Path="Sea.Options.inc"/>
+    <File Path="Sea.Startup.pas"/>
+    <File Path="Sea.Globals.pas"/>
+    <File Path="Sea.Memory.pas"/>
+    <File Path="Sea.Version.pas"/>
+  </ProjectSortOrder>
 </BorlandProject>

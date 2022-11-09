@@ -8,5 +8,4 @@
 **/*.identcache
 **/*.map
 **/*.delphilsp.json
-**/Release
 
