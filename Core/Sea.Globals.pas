@@ -19,8 +19,9 @@ const
   VersionData = 'VersionData\';
 
 var
-  ClientVersionSignature: String = '0000000000000';
-  ClientVersionName:      String = '';
+  ClientVersionSignature: String  = '0000000000000';
+  ClientVersionName:      String  = 'Unknown';
+  ClientVersionUnknown:   Boolean = True;
 
   SeaDirVer: String = SeaDir + VersionData;
 

@@ -168,6 +168,7 @@ var
 begin
   ClientVersionSignature := IntToBaseX(ClientVersionTDS, 16, 8) + VersionInfoRead('FileVersion').Replace('.', '');
   ClientVersionName      := 'Unknown';
+  ClientVersionUnknown   := True;
 
   VerFile := TStrings.Create;
 
@@ -189,7 +190,8 @@ begin
 
       if LineSig = ClientVersionSignature then
       begin
-        ClientVersionName := Line.SplitFirst(',', True, True);
+        ClientVersionName    := Line.SplitFirst(',', True, True);
+        ClientVersionUnknown := False;
         Break;
       end;
     end;
