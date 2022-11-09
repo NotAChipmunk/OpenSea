@@ -1,0 +1,12 @@
+**/__history
+**/__recovery
+**/dcu
+**/*.~*
+**/*.dcu
+**/*.dproj
+**/*.local
+**/*.identcache
+**/*.map
+**/*.delphilsp.json
+**/Release
+
