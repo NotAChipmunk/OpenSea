@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{DFDD9D25-7E8A-40E8-84A0-2E876CD2A4C7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="msimg32\msimg32.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Core\Sea.Core.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="msimg32">
+        <MSBuild Projects="msimg32\msimg32.dproj"/>
+    </Target>
+    <Target Name="msimg32:Clean">
+        <MSBuild Projects="msimg32\msimg32.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="msimg32:Make">
+        <MSBuild Projects="msimg32\msimg32.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Sea_Core">
+        <MSBuild Projects="Core\Sea.Core.dproj"/>
+    </Target>
+    <Target Name="Sea_Core:Clean">
+        <MSBuild Projects="Core\Sea.Core.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Sea_Core:Make">
+        <MSBuild Projects="Core\Sea.Core.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="msimg32;Sea_Core"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="msimg32:Clean;Sea_Core:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="msimg32:Make;Sea_Core:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
