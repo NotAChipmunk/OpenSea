@@ -5,6 +5,9 @@
 **/*.dcu
 **/*.dproj
 **/*.local
+**/*.*.local
+**/*.*.identcahce
+**/*.*.map
 **/*.identcache
 **/*.map
 **/*.delphilsp.json
