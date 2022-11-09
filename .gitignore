@@ -11,4 +11,14 @@
 **/*.identcache
 **/*.map
 **/*.delphilsp.json
+/Release/endless.exe
+/Release/config
+/Release/data
+/Release/gfx
+/Release/help
+/Release/jbox
+/Release/maps
+/Release/pub
+/Release.sfx
+
 
