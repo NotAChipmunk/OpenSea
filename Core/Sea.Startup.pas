@@ -22,19 +22,22 @@ implementation
 uses
   Sea.Globals,
   Sea.Memory,
+  Sea.Hook,
   Sea.Version;
 
 {$REGION 'Staging'}
 procedure Stage1;
 begin;
   Sea.Memory.Stage1;
+  Sea.Hook.Stage1;
   Sea.Version.Stage1;
 end;
 
 procedure StageZ;
 begin
-  Sea.Memory.Stage1;
   Sea.Version.StageZ;
+  Sea.Hook.StageZ;
+  Sea.Memory.StageZ;
 end;
 {$ENDREGION}
 

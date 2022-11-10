@@ -93,6 +93,7 @@
         <DCCReference Include="Sea.Startup.pas"/>
         <DCCReference Include="Sea.Globals.pas"/>
         <DCCReference Include="Sea.Memory.pas"/>
+        <DCCReference Include="Sea.Hook.pas"/>
         <DCCReference Include="Sea.Version.pas"/>
         <None Include="Sea.Options.inc"/>
         <BuildConfiguration Include="Base">
