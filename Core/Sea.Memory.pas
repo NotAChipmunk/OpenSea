@@ -17,6 +17,7 @@ uses
 
 {$REGION 'Staging'}
 procedure Stage1;
+procedure Stage2;
 procedure StageZ;
 {$ENDREGION}
 
@@ -43,6 +44,11 @@ uses
 
 {$REGION 'Staging'}
 procedure Stage1;
+begin
+  {}
+end;
+
+procedure Stage2;
 begin
   {}
 end;

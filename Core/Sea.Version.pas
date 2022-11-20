@@ -19,6 +19,7 @@ uses
 
 {$REGION 'Staging'}
 procedure Stage1;
+procedure Stage2;
 procedure StageZ;
 {$ENDREGION}
 
@@ -49,6 +50,11 @@ procedure Stage1;
 begin
   VersionInfoInit;
   ClientVersionDetect;
+end;
+
+procedure Stage2;
+begin
+  {}
 end;
 
 procedure StageZ;
@@ -166,7 +172,7 @@ var
   Line:    String;
   LineSig: String;
 begin
-  ClientVersionSignature := IntToBaseX(ClientVersionTDS, 16, 8) + VersionInfoRead('FileVersion').Replace('.', '');
+  ClientVersionSignature := IntToBaseX(ClientVersionTDS, 16, 8) {+ VersionInfoRead('FileVersion').Replace('.', '')};
   ClientVersionName      := 'Unknown';
   ClientVersionUnknown   := True;
 

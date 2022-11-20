@@ -17,6 +17,7 @@ interface
 
 {$REGION 'Staging'}
 procedure Stage1;
+procedure Stage2;
 procedure StageZ;
 {$ENDREGION}
 
@@ -41,6 +42,11 @@ uses
 procedure Stage1;
 begin
   LDE64Init;
+end;
+
+procedure Stage2;
+begin
+  {}
 end;
 
 procedure StageZ;
@@ -205,6 +211,8 @@ var
   Handle: THandle;
   Proc:   Pointer;
 begin
+  Writeln('HookAPI ' + AModule + ':' + AName);
+
   Handle := LoadLibrary(PWideChar(AModule));
   if Handle = 0 then
   begin

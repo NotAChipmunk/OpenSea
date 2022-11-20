@@ -15,6 +15,11 @@ unit Sea.Globals;
 interface
 
 const
+  ClientWindowClass = 'TMainForm';
+
+  SeaName    = 'OpenSea';
+  SeaVersion = '0.1a';
+
   SeaDir = '.\Sea\';
   VersionData = 'VersionData\';
 
