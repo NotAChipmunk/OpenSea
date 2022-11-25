@@ -28,7 +28,8 @@ uses
   Sea.Hook,
   Sea.Version,
   Sea.Window,
-  Sea.Console;
+  Sea.Console,
+  Sea.Plugins;
 
 {$REGION 'Staging'}
 procedure Stage1;
@@ -38,6 +39,7 @@ begin;
   Sea.Memory.Stage1;
   Sea.Hook.Stage1;
   Sea.Version.Stage1;
+  Sea.Plugins.Stage1;
   Sea.Window.Stage1;
 end;
 
@@ -48,6 +50,7 @@ begin
   Sea.Memory.Stage2;
   Sea.Hook.Stage2;
   Sea.Version.Stage2;
+  Sea.Plugins.Stage2;
   Sea.Window.Stage2;
 end;
 
@@ -55,6 +58,7 @@ procedure StageZ;
 begin
   Writeln('Stage Z (cleanup)');
   Sea.Window.StageZ;
+  Sea.Plugins.StageZ;
   Sea.Version.StageZ;
   Sea.Hook.StageZ;
   Sea.Memory.StageZ;

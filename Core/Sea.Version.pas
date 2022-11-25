@@ -24,10 +24,12 @@ procedure StageZ;
 {$ENDREGION}
 
 {$REGION 'VersionInfoXXX'}
-procedure VersionInfoInit;
-procedure VersionInfoRelease;
+//procedure VersionInfoInit;
+//procedure VersionInfoRelease;
 
-function  VersionInfoRead(const AValue: String; const ALang: Integer = 0): String;
+//function  VersionInfoRead(const AValue: String; const ALang: Integer = 0): String;
+
+function VersionInfoReadFrom(const AFileName, AValue: String; const ALang: Integer = 0): String;
 {$ENDREGION}
 
 {$REGION 'ClientVersionXXX'}
@@ -48,7 +50,7 @@ uses
 {$REGION 'Staging'}
 procedure Stage1;
 begin
-  VersionInfoInit;
+  //VersionInfoInit;
   ClientVersionDetect;
 end;
 
@@ -59,11 +61,12 @@ end;
 
 procedure StageZ;
 begin
-  VersionInfoRelease;
+  //VersionInfoRelease;
 end;
 {$ENDREGION}
 
 {$REGION 'VersionInfoXXX'}
+{
 var
   VersionInfoSize: Cardinal = 0;
   VersionInfoBuff: Pointer  = nil;
@@ -146,6 +149,86 @@ begin
     Result := '';
   end;
 end;
+}
+function VersionInfoReadFrom;
+type
+  TLangCP = record
+    Language: Word;
+    CodePage: Word;
+  end;
+
+  PLangCPPool = ^TLangCPPool;
+  TLangCPPool = array[0..0] of TLangCP;
+var
+  VersionInfoSize: Cardinal;
+  VersionInfoBuff: Pointer;
+
+  LangCP:     PLangCPPool;
+  LangCPSize: UINT;
+  BoundLang:  Integer;
+  Value:      PChar;
+  ValueLen:   UINT;
+  QueryStr:   String;
+
+  procedure VersionInfoRelease;
+  begin
+    FreeMem(VersionInfoBuff);
+
+    VersionInfoSize := 0;
+    VersionInfoBuff := nil;
+  end;
+
+  procedure VersionInfoInit;
+  var
+    VersionInfoHandle: DWORD;
+  begin
+    VersionInfoSize := GetFileVersionInfoSize(PChar(AFileName), VersionInfoHandle);
+    if VersionInfoSize = 0 then
+    begin
+      Writeln('Failed to get version size');
+      Exit;
+    end;
+
+    GetMem(VersionInfoBuff, VersionInfoSize);
+
+    if not GetFileVersionInfo(PChar(AFileName), 0, VersionInfoSize, VersionInfoBuff) then
+    begin
+      Writeln('Failed to get version information');
+      VersionInfoRelease;
+    end;
+  end;
+begin
+  VersionInfoBuff := nil;
+  VersionInfoSize := 0;
+
+  VersionInfoInit;
+
+  if not Assigned(VersionInfoBuff) then
+    Exit('');
+
+  try
+    QueryStr := '\StringFileInfo\';
+
+    if VerQueryValue(VersionInfoBuff, PChar('\VarFileInfo\Translation'), Pointer(LangCP), LangCPSize) then
+    begin
+      BoundLang := Abs(ALang);
+      if BoundLang > Integer(LangCPSize) then
+        BoundLang := LangCPSize;
+
+      QueryStr := QueryStr + IntToBaseX(LangCP^[BoundLang].Language, 16, 4) +
+                             IntToBaseX(LangCP^[BoundLang].CodePage, 16, 4) + '\';
+    end;
+
+    QueryStr := QueryStr + AValue;
+
+    if VerQueryValue(VersionInfoBuff, PChar(QueryStr), Pointer(Value), ValueLen) then
+      Result := String(Value)
+    else
+      Result := '';
+  finally
+    VersionInfoRelease;
+  end;
+end;
 {$ENDREGION}
 
 {$REGION 'ClientVersionXXX'}
@@ -180,7 +263,7 @@ begin
 
   try
     try
-      VerFile.LoadFromFile(SeaDir + VersionData + 'Detect.dat');
+      VerFile.LoadFromFile(VersionData);
     except
       Writeln('No Version Data');
     end;

@@ -17,11 +17,13 @@ interface
 const
   ClientWindowClass = 'TMainForm';
 
-  SeaName    = 'OpenSea';
+  SeaName    = 'OpenSEA';
   SeaVersion = '0.1a';
 
-  SeaDir = '.\Sea\';
-  VersionData = 'VersionData\';
+  SeaDir        = '.\Sea\';
+  SeaPluginsDir = SeaDir + 'Plugins\';
+
+  VersionData = SeaDir + 'VersionData.csv';
 
 var
   ClientVersionSignature: String  = '0000000000000';

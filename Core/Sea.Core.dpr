@@ -27,11 +27,14 @@ library Sea.Core;
 {$R *.res}
 
 uses
-  Sea.Startup in 'Sea.Startup.pas',
   Sea.Globals in 'Sea.Globals.pas',
-  Sea.Memory  in 'Sea.Memory.pas',
-  Sea.Hook    in 'Sea.Hook.pas',
-  Sea.Version in 'Sea.Version.pas';
+  Sea.Memory in 'Sea.Memory.pas',
+  Sea.Hook in 'Sea.Hook.pas',
+  Sea.Version in 'Sea.Version.pas',
+  Sea.Window in 'Sea.Window.pas',
+  Sea.Console in 'Sea.Console.pas',
+  Sea.Startup in 'Sea.Startup.pas',
+  Sea.Plugins in 'Sea.Plugins.pas';
 
 end.
 

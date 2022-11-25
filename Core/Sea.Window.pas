@@ -65,7 +65,7 @@ end;
 
 procedure Stage2;
 begin
-  ClientWindow.Handle.Caption := ClientWindow.Handle.Caption + ' - OpenSea';
+  ClientWindow.Handle.Caption := ClientWindow.Handle.Caption + ' - ' + SeaName;
 end;
 
 procedure StageZ;
